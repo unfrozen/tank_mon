@@ -1,0 +1,30 @@
+The "Tank Monitor" is a system to display the amount of water in a tank, and
+to give useful information on water usage.  This is designed for an
+International Bulk Container ("tote"), but other water tanks can use this
+if there is a way to mount the ultrasonic sender on the inside, pointed down.
+
+All parts of this system are very inexpensive and easily bought on eBay.
+CPU module: $1.03, Display: $1.88, Range Finder: $1.25, Wires: $0.25
+You will also need a 5-volt power supply. A cheap micro-USB cell phone
+charger is probably fine. The CPU programmer is $2.50
+
+If you would like to monitor and record the water level with a computer,
+you can get a TTL to USB converter for $1.00 to $1.50 With this, you can
+use a terminal program and save the information every second and use it
+as historical data.
+
+The ultrasonic range finder is "HC-SR04" and is probably usable to a
+distance of 10 to 12 feet.
+
+DISPLAY MODES:
+
+The display can show what you are interested in viewing. Change the mode
+by pressing one of the mode buttons under the display.
+
+Example displays:
+1. "L  250.5"  Water level in Gallons
+2. "L 1000 L"  Water level in Liters
+3. "L 100 PC"  Water level in Percentage of full
+4. "P  12345"  Water level Ping time (for calibration)
+
+

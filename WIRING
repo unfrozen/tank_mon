@@ -1,0 +1,13 @@
+Wiring for the HC-SR04 range finder and TM1638 display & keypad.
+
+STM8S103 to TM1638 display & keypad
+
+D1	CLK
+D2	STB
+D3	DIO
+
+STM8S103 to HC-SR04 rangefinder
+
+A2	Trig
+A3	Echo
+

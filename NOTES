@@ -1,0 +1,97 @@
+Notes on Tote Monitor:
+Last update Dec 20, 2018
+
+Mounting the HC-SR04 ultrasonic rangefinder:
+
+Idea #1, inside the tank:
+My first thought was to mount the device inside the tank, and then considered
+gluing it to the bottom of the screw cap. The back of the board has components
+that might not be compatible with glue. Perhaps attaching it to another
+board would work? The mount holes are very small, so screws are probably not
+an option. Maybe soldering a fat wire in each corner to attach the boards to
+each other? Then there is the glue itself. The cap is plastic #2, HDPE. It
+looks like a highly special solvent/glue is needed for this. This is not
+looking like a good solution.
+
+Idea #2, on top of the tank:
+The tank must be ventilated, so drilling holes is an option. So if the device
+can be placed on top of the tank, two holes could be drilled for the TX and RX
+transducers. Glue is probably not needed if the transducers have a good tight
+fit in the holes. Further, no wiring will need to go through the tank or cap.
+
+Transducer diameter: 0.625 nominal
+Center to center distance: 1.00 inches
+
+Plan: Scribe two drill points 1.00 apart, drill tiny starter holes.
+Then drill final holes with 5/8 bit.
+Check fit, if too loose, use shims. If too tight, cut one side slightly.
+
+Choosing location:
+The claimed beam width is 15 degrees. At 48 inches, that gives a diameter
+of about 12 inches. The tote sides will probably not reflect, so this may
+not be as important is it first appears. But closer to the center is probably
+better. Tentatively, the water in and out pipes will be in the rear two
+corners, so anywhere near the center is fine.
+
+CALIBRATING THE DISTANCES AND TANK FULL PERCENTAGE:
+
+The tank is nearly full at the 1000 liter (264 gallon) mark. I will label
+this the 100% point. Starting with an empty tank, I will use the microsecond
+count on the LCD to find the values for every 100 liters. Then I will build
+a table of these values and a function to interpolate 0 to 99 gallons between
+any two points. To allow for human error when filling, I will find out how
+much more than 1000 liters the tank can safely handle.
+
+OPEN QUESTIONS:
+
+A beeper is probably necessary to avoid overflow from human error. Should it
+beep once at 100, 200, .. 900 liters? Should it beep at some rate during the
+last 100 liters? What would be a good alarm beep when it reaches 100%?
+
+CALIBRATION DATA:
+
+Round trip times were taken for empty and every 100 liters from 200 to 1000.
+The first number is the sum of five samples.
+
+empty:	29800	5960
+100:	26900	5380	(interpolated)
+200:	24000	4800
+300:	21200	4240
+400:	18670	3734
+500:	16000	3200
+600:	13420	2684
+700:	10750	2150
+800:	8060	1612
+900:	5342	1068
+1000:	2680	 536
+1100:	  20	   4	(calculated)
+
+These numbers go into a table at the bottom of the source code.
+
+WIRING:
+
+The microcontroller and display will be in the house, where the valves
+and other plumbing are. The sonar unit will be in the garage, on the tank.
+
+There are two twisted pairs available, the orange pair and the green pair.
+I will use solid orange and solid green for the 5 volt and ground.
+Orange/white will be trigger and green/white will be echo. The total
+length will probably be 150 to 200 feet.
+
+PLUMBING:
+
+There are two pipes going to the tank, one to serve the house, the other for
+refilling. The refill pipe is trivial, it connects to a hose going into the
+tank cap. There will be no real pressure at this end.
+
+A 1/2 inch CPVC pipe goes through a hole drilled in the top of the tank.
+At the top, it has a threaded fitting that connects to an iron tee. Two
+nylon adapters connect the tee to two vinyl hoses. These hoses go to two
+water pumps (probably made for an RV water system.) The output of the
+pumps go back together at another iron tee. From there, the water goes to 
+a garden faucet adapter, then an RV water hose, and then to the main
+pipe that goes to the house.
+
+The water pumps have pressure switches, and turn on and off automatically
+as needed for house water demand. They run off 12 volts, from a power supply.
+
