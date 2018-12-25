@@ -1,4 +1,5 @@
-
+# Note: set the relative directory of the library files.
+ 
 SDCC = sdcc -mstm8 -I ../libs -L ../libs -DSTM8103
 
 LIBS = lib_stm8.lib

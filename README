@@ -1,0 +1,9 @@
+README:
+
+This source code links with the STM8 libraries. If you have not downloaded
+and compiled the libraries, do that first. Be sure to set the relative
+location of the library files in Makefile.
+
+If you have any difficulty, you may contact the author at:
+richard@hodges.org
+
